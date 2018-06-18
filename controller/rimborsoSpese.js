@@ -12,6 +12,8 @@ rimborsoSpese.execute = async (settings) => {
     const worbook = await excel.importWorkbook(settings);
 
     const compiledWorkbook = await excel.compileWorkbook(settings, worbook, filteredEntries);
+
+    const fileNamePath = await excel.exportWorkbook(settings, compiledWorkbook);
 };
 
 

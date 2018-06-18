@@ -1,8 +1,9 @@
 {
-  "name": "automazioneRimborsiSpese",
+  "name": "rimborsospese",
   "version": "0.0.1",
   "dependencies": {
-    "exceljs": "latest",
-    "axios": "latest"
+    "axios": "^0.18.0",
+    "dateformat": "^3.0.3",
+    "xlsx-populate": "^1.17.0"
   }
 }
