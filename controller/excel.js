@@ -16,6 +16,13 @@ xls.compileWorkbook = async (settings, workbook, entries) => {
     //setto la data del documento a oggi come {dd/mm/yyyy}
     sheet.cell(settings.excel.cells.dataDocumento).value(_format());
 
+    //setto nome e cognome nel excel
+    sheet.cell(settings.excel.cells.cognomeDocumento).value(settings.auth.surName);
+    sheet.cell(settings.excel.cells.nomeDocumento).value(settings.auth.name);
+
+    //setto la firma (nome e cognome con un font specifico)
+    sheet.cell(settings.excel.cells.firmaDocumento).value(`${settings.auth.name} ${settings.auth.surName}`);
+
     let currentRow = settings.excel.row.initialRow;
 
     entries.forEach(timecard => {
@@ -35,7 +42,9 @@ xls.compileWorkbook = async (settings, workbook, entries) => {
 };
 
 xls.exportWorkbook = async (settings, workbook) => {
-    const path = `Rimborso ${settings.auth.name} ${_getCurrentMonth(settings)} ${new Date().getFullYear()}.xlsx`;
+    const fullName = `${settings.auth.name} ${settings.auth.surName}`;
+
+    const path = `Rimborso ${fullName} ${_getCurrentMonth(settings)} ${new Date().getFullYear()}.xlsx`;
 
     await workbook.toFileAsync(path);
 
