@@ -35,8 +35,11 @@ xls.compileWorkbook = async (settings, workbook, entries) => {
 };
 
 xls.exportWorkbook = async (settings, workbook) => {
-    await workbook.toFileAsync(settings.constant.workbookDone);
-    return settings.constant.workbookDone;
+    const path = `Rimborso ${settings.auth.name} ${_getCurrentMonth(settings)} ${new Date().getFullYear()}.xlsx`;
+
+    await workbook.toFileAsync(path);
+
+    return path;
 };
 
 const _getCurrentMonth = (settings) => {

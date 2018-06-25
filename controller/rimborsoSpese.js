@@ -4,7 +4,7 @@ const timecard = require("../controller/timecard");
 
 const rimborsoSpese = {};
 
-rimborsoSpese.execute = async (settings) => {
+rimborsoSpese.execute = async (settings, currentPath) => {
     const token = await timecard.getToken(settings);
     process.stdout.write("token acquired \n");
 
@@ -23,8 +23,8 @@ rimborsoSpese.execute = async (settings) => {
     const fileNamePath = await excel.exportWorkbook(settings, compiledWorkbook);
     process.stdout.write("workbook exported\n");
 
-    const result = pdf.createPdf(settings);
-
+    // const result = pdf.createPdf(settings, currentPath);
+    return true;
 };
 
 
