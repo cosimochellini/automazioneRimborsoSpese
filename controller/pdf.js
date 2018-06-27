@@ -1,9 +1,12 @@
-var office = require('office-script');
+var cmd = require('node-cmd');
 
 const pdf = {};
 
-pdf.createPdf = async (settings) => {
-    var of = office;
+pdf.createPdf = (settings, path, currentPath) => {
+
+    var psCommand = `${settings.libreoffice.path} ${settings.libreoffice.command} \"${currentPath}/${path}\"`
+    cmd.run(psCommand);
+
 };
 
 module.exports = pdf;

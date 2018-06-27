@@ -4,6 +4,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dateformat": "^3.0.3",
+    "node-cmd": "^3.0.0",
     "xlsx-populate": "^1.17.0"
   }
 }

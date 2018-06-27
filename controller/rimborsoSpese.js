@@ -1,5 +1,6 @@
 // const pdf = require("../controller/pdf");
 const excel = require("../controller/excel");
+const pdf = require("../controller/pdf");
 const timecard = require("../controller/timecard");
 
 const rimborsoSpese = {};
@@ -23,8 +24,10 @@ rimborsoSpese.execute = async (settings, currentPath) => {
     const fileNamePath = await excel.exportWorkbook(settings, compiledWorkbook);
     process.stdout.write("workbook exported\n");
 
+    const pdfResult = pdf.createPdf(settings, fileNamePath, currentPath);
+
     // const result = pdf.createPdf(settings, currentPath);
-    return true;
+    return pdfResult;
 };
 
 
