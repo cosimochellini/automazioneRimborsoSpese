@@ -44,7 +44,7 @@ xls.compileWorkbook = async (settings, workbook, entries) => {
 xls.exportWorkbook = async (settings, workbook) => {
     const fullName = `${settings.auth.name} ${settings.auth.surName}`;
 
-    const path = `Rimborso ${fullName} ${_getCurrentMonth(settings)} ${new Date().getFullYear()}.xlsx`;
+    const path = `Rimborso ${fullName} ${new Date().getFullYear()}-${_getCurrentMonth(settings)}.xlsx`;
 
     await workbook.toFileAsync(path);
 
