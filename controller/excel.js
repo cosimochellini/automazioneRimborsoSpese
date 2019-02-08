@@ -8,7 +8,7 @@ xls.importWorkbook = async settings => {
 };
 
 xls.compileWorkbook = async (settings, workbook, entries) => {
-    var sheet = workbook.sheet(settings.excel.worksheetName); //import the worksheet
+    const sheet = workbook.sheet(settings.excel.worksheetName); //import the worksheet
 
     //setto il mese di riferimento a {mese} {Anno}
     sheet.cell(settings.excel.cells.meseRiferimento).value(`${_getCurrentMonth(settings)} ${new Date().getFullYear()}`);
@@ -61,6 +61,6 @@ const _format = (date, format) => {
     date = date || new Date();
     format = format || "dd/mm/yyyy";
     return dateFormat(date, format)
-}
+};
 
 module.exports = xls;
