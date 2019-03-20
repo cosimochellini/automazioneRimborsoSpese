@@ -1,4 +1,5 @@
 const axios = require('axios');
+const querystring = require('querystring');
 
 let timecard = {
     /***
@@ -21,7 +22,7 @@ let timecard = {
         return response.data.value;
     },
 
-    generateUrlTimecards = (settings) => {
+    generateUrlTimecards: (settings) => {
         let date = new Date(), y = date.getFullYear(), m = date.getMonth();
         let firstDay = new Date(Date.UTC(y, m, 1));
         let lastDay = new Date(Date.UTC(y, m + 1, 0));
@@ -35,7 +36,7 @@ let timecard = {
         return url + requestSettings;
     },
 
-    getToken = async settings => {
+    getToken: async settings => {
 
         const requestParams = {
             grant_type: 'password',
@@ -50,16 +51,20 @@ let timecard = {
 
 
     filterFunction: {
-        inlinea: (item, settings, clientName) => {
-            return item.Activity.Code === settings.clients.find(client => client.name === clientName).activityType;
+        inlinea: (item, settings, currentClient) => {
+            return item.Activity.Code === currentClient.activityType;
         },
 
-        adacto: (item, settings, clientName) => {
-            return item.Activity.Code === settings.clients.find(client => client.name === clientName).activityType;
+        adacto: (item, settings, currentClient) => {
+            return item.Activity.Code === currentClient.activityType;
+        },
+
+        default: (item, settings, currentClient) => {
+            process.stdout.write(`nessuna filterFunction per il cliente ${currentClient.name}, creare una funzione con nome ${currentClient.name} in timecard.s => filterFunction`);
+
+            return false;
         },
     }
-
-
 };
 
 module.exports = timecard;

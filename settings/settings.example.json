@@ -24,6 +24,9 @@
             "Dicembre"
         ]
     },
+    "commands": {
+        "exportToPdf" : false
+    },
     "clients": [
         {
             "name": "client_1",

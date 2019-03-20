@@ -21,11 +21,13 @@ rimborsoSpese.execute = async (settings, currentPath) => {
 
         process.stdout.write(`executing client ${client}\n`);
 
-        let filteredEntriesPerClient = entries.filter((item) => timecard.filterFunction[client](item, settings, client.name)).map(item => {
-            return { client: client, entry: item }
-        });
+        let currentClient = settings.clients.find(client => client.name === clientName);
 
-        totalEntries.push(filteredEntriesPerClient);
+        let filterFunction = timecard.filterFunction[client.name] ? timecard.filterFunction[client.name] : timecard.filterFunction.default;
+
+        entries.filter((item) => filterFunction(item, settings, currentClient)).forEach(item => {
+            totalEntries.push({ client: client, entry: item });
+        });
 
     });
 
@@ -37,10 +39,9 @@ rimborsoSpese.execute = async (settings, currentPath) => {
     const fileNamePath = await excel.exportWorkbook(settings, compiledWorkbook);
     process.stdout.write("workbook exported\n");
 
-    const pdfResult = pdf.createPdf(settings, fileNamePath, currentPath);
+    if (settings.commands.exportToPdf) pdf.createPdf(settings, fileNamePath, currentPath);
 
-    // const result = pdf.createPdf(settings, currentPath);
-    return pdfResult;
+    return true;
 };
 
 
