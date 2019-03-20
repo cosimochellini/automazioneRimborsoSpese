@@ -12,13 +12,26 @@ rimborsoSpese.execute = async (settings, currentPath) => {
     const entries = await timecard.getTimecards(settings, token);
     process.stdout.write("timecard acquired \n");
 
-    const filteredEntries = entries.filter((item) => timecard.filterFunction(item, settings));
-    process.stdout.write("timecard filtered \n");
-
     const worbook = await excel.importWorkbook(settings);
     process.stdout.write("workbook imported\n");
 
-    const compiledWorkbook = await excel.compileWorkbook(settings, worbook, filteredEntries);
+    let totalEntries = [];
+
+    settings.clients.forEach(client => {
+
+        process.stdout.write(`executing client ${client}\n`);
+
+        let filteredEntriesPerClient = entries.filter((item) => timecard.filterFunction[client](item, settings, client.name)).map(item => {
+            return { client: client, entry: item }
+        });
+
+        totalEntries.push(filteredEntriesPerClient);
+
+    });
+
+    process.stdout.write("timecard filtered \n");
+
+    const compiledWorkbook = await excel.compileWorkbook(settings, worbook, totalEntries);
     process.stdout.write("workbook compiled\n");
 
     const fileNamePath = await excel.exportWorkbook(settings, compiledWorkbook);

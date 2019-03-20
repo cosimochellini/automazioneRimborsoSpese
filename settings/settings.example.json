@@ -1,0 +1,63 @@
+{
+    "auth": {
+        "username": "username",
+        "password": "password",
+        "id": "-1",
+        "name": "Marco",
+        "surName": "Rossi"
+    },
+    "constant": {
+        "baseUrlTimecard": "https://www.yourSite.com",
+        "workbookPath": "./Rimborso.xlsx",
+        "month": [
+            "Gennaio",
+            "Febbraio",
+            "Marzo",
+            "Aprile",
+            "Maggio",
+            "Giugno",
+            "Luglio",
+            "Agosto",
+            "Settembre",
+            "Ottobre",
+            "Novembre",
+            "Dicembre"
+        ]
+    },
+    "clients": [
+        {
+            "name": "client_1",
+            "activityType": "CONS",
+            "descrizioneDestinazione": "descrizione1",
+            "spesa": 9.99
+        },
+        {
+            "name": "client_2",
+            "activityType": "CONS",
+            "descrizioneDestinazione": "descrizione2",
+            "spesa": 9.99
+        }
+    ],
+    "excel": {
+        "worksheetName": "Rimborso spese",
+        "cells": {
+            "meseRiferimento": "C2",
+            "dataDocumento": "E40",
+            "cognomeDocumento": "C4",
+            "nomeDocumento": "C5",
+            "firmaDocumento": "K39"
+        },
+        "row": {
+            "initialRow": 12
+        },
+        "column": {
+            "data": "D",
+            "destinazione": "E",
+            "spesa": "N"
+        }
+    },
+    "libreoffice": {
+        "path": "\"C:\\Path\\to\\LibreOffice\\soffice.exe\"",
+        "command": " --convert-to pdf"
+    }
+}
