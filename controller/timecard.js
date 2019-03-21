@@ -60,7 +60,9 @@ let timecard = {
         },
 
         default: (item, settings, currentClient) => {
-            process.stdout.write(`nessuna filterFunction per il cliente ${currentClient.name}, creare una funzione con nome ${currentClient.name} in timecard.s => filterFunction`);
+            process.stdout.write(`nessuna filterFunction per il cliente ${currentClient.name}, 
+                                creare una funzione con nome ${currentClient.name}
+                                in timecard.s => filterFunction`);
 
             return false;
         },
