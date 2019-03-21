@@ -9,6 +9,7 @@
     "constant": {
         "baseUrlTimecard": "https://www.yourSite.com",
         "workbookPath": "./Rimborso.xlsx",
+        "pdfPath": "C:\\Path\\to\\...",
         "month": [
             "Gennaio",
             "Febbraio",
@@ -25,42 +26,46 @@
         ]
     },
     "commands": {
-        "exportToPdf" : false
-    },
-    "clients": [
-        {
-            "name": "client_1",
-            "activityType": "CONS",
-            "descrizioneDestinazione": "descrizione1",
-            "spesa": 9.99
+        "commands": {
+            "exportToPdf": false,
+            "deleteExcel": false,
+            "movePdf": false
         },
-        {
-            "name": "client_2",
-            "activityType": "CONS",
-            "descrizioneDestinazione": "descrizione2",
-            "spesa": 9.99
+        "clients": [
+            {
+                "name": "client_1",
+                "activityType": "CONS",
+                "descrizioneDestinazione": "descrizione1",
+                "spesa": 9.99
+            },
+            {
+                "name": "client_2",
+                "activityType": "TM",
+                "descrizioneDestinazione": "descrizione2",
+                "spesa": 9.99
+            }
+        ],
+        "excel": {
+            "worksheetName": "Rimborso spese",
+            "cells": {
+                "meseRiferimento": "C2",
+                "dataDocumento": "E40",
+                "cognomeDocumento": "C4",
+                "nomeDocumento": "C5",
+                "firmaDocumento": "K39"
+            },
+            "row": {
+                "initialRow": 12
+            },
+            "column": {
+                "data": "D",
+                "destinazione": "E",
+                "spesa": "N"
+            }
+        },
+        "libreoffice": {
+            "path": "\"C:\\Path\\to\\LibreOffice\\soffice.exe\"",
+            "command": " --convert-to pdf"
         }
-    ],
-    "excel": {
-        "worksheetName": "Rimborso spese",
-        "cells": {
-            "meseRiferimento": "C2",
-            "dataDocumento": "E40",
-            "cognomeDocumento": "C4",
-            "nomeDocumento": "C5",
-            "firmaDocumento": "K39"
-        },
-        "row": {
-            "initialRow": 12
-        },
-        "column": {
-            "data": "D",
-            "destinazione": "E",
-            "spesa": "N"
-        }
-    },
-    "libreoffice": {
-        "path": "\"C:\\Path\\to\\LibreOffice\\soffice.exe\"",
-        "command": " --convert-to pdf"
     }
 }
