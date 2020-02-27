@@ -25,26 +25,26 @@
             "Dicembre"
         ]
     },
+    "clients": [
+        {
+            "name": "client_1",
+            "activityType": "CONS",
+            "descrizioneDestinazione": "descrizione1",
+            "spesa": 9.99
+        },
+        {
+            "name": "client_2",
+            "activityType": "TM",
+            "descrizioneDestinazione": "descrizione2",
+            "spesa": 9.99
+        }
+    ],
     "commands": {
         "commands": {
             "exportToPdf": false,
             "deleteExcel": false,
             "movePdf": false
         },
-        "clients": [
-            {
-                "name": "client_1",
-                "activityType": "CONS",
-                "descrizioneDestinazione": "descrizione1",
-                "spesa": 9.99
-            },
-            {
-                "name": "client_2",
-                "activityType": "TM",
-                "descrizioneDestinazione": "descrizione2",
-                "spesa": 9.99
-            }
-        ],
         "excel": {
             "worksheetName": "Rimborso spese",
             "cells": {
