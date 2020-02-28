@@ -4,8 +4,9 @@
   "dependencies": {
     "axios": "^0.19.2",
     "dateformat": "^3.0.3",
-    "xlsx-populate": "^1.19.1",
-    "snyk": "^1.297.1"
+    "snyk": "^1.297.2",
+    "sort-es": "^0.2.11",
+    "xlsx-populate": "^1.19.1"
   },
   "scripts": {
     "snyk-protect": "snyk protect",
