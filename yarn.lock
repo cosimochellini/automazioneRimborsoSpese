@@ -1894,10 +1894,10 @@ socks@~2.3.2:
     ip "1.1.5"
     smart-buffer "^4.1.0"
 
-sort-es@^0.2.11:
-  version "0.2.11"
-  resolved "https://registry.yarnpkg.com/sort-es/-/sort-es-0.2.11.tgz#5bc59907f6792062b5590b2d80dff3a63ed54c63"
-  integrity sha512-bN6dCudFQe2KYi3VQLO8z0sRK4PkBTQX+ORTv2Oo8EFP7pMB9vKuK5Sjlq2LgR+I3hS91lBZthAt5wxg/ENbHg==
+sort-es@^0.2.12:
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/sort-es/-/sort-es-0.2.13.tgz#9f16b7e455d27059cb6e424d409815ad1542cae1"
+  integrity sha512-U6H7WdxGZzLljMOhHx/2VdFQyH3h9qoKlGXOeApN2ZhD++0CnJxma0rjZloYto0NgxFN1PKmcwe5XVDJ+cDt4Q==
 
 source-map-support@^0.5.11, source-map-support@^0.5.7:
   version "0.5.16"
