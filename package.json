@@ -5,7 +5,7 @@
     "axios": "^0.19.2",
     "dateformat": "^3.0.3",
     "snyk": "^1.297.2",
-    "sort-es": "^0.2.11",
+    "sort-es": "^0.2.12",
     "xlsx-populate": "^1.19.1"
   },
   "scripts": {
