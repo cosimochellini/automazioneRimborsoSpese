@@ -1,16 +1,11 @@
 {
-  "name": "rimborsospese",
+  "name": "ars",
   "version": "0.4.0",
   "dependencies": {
     "axios": "^0.19.2",
     "dateformat": "^3.0.3",
-    "snyk": "^1.305.0",
-    "sort-es": "^0.3.4",
+    "sort-es": "^0.6.7",
     "xlsx-populate": "^1.21.0"
   },
-  "scripts": {
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect"
-  },
-  "snyk": true
+  "scripts": {}
 }
